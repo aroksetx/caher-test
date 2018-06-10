@@ -17,7 +17,6 @@ const store = createStore(AppReducer, applyMiddleware(middleware, logger));
 export default class App extends React.Component {
   constructor() {
     super();
-    console.log("Main Constructor");
   }
 
   componentDidMount() {
