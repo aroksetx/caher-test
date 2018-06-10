@@ -1,39 +1,48 @@
-import React, {Component} from 'react';
-import {
-    StyleSheet,
-    Text,
-    View
-  } from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import styles from './NavigationStyles';
-import NavigationItem from './NavigationItem';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import styles from "./NavigationStyles";
+import NavigationItem from "./NavigationItem";
 
-export default class Navigation extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            isMap: true
-        }
-    }
+const mapStateToProps = state => ({
+  isLoggedIn: 'asdasdasdas'
+});
 
-    goToLocationsScreen(){
-        this.props.navigation.navigate('LocationsScreen');
-    }
+class Navigation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMap: true
+    };
+  }
 
-    goToMapScreen(){
-        this.props.navigation.navigate('MapScreen');
-    }
+  goToLocationsScreen() {
+    this.props.navigation.navigate("LocationsScreen");
+  }
 
-    render(){
-        return(
-            <View style={styles.navigationBlock}>
-                <NavigationItem
-                    action={this.goToMapScreen.bind(this)}
-                    isActive={this.state.isMap} title="Map"/>
-                <NavigationItem
-                    action={this.goToLocationsScreen.bind(this)}
-                    isActive={!this.state.isMap} title="Saved Locations"/>
-            </View>
-        );
-    }
+  goToMapScreen() {
+    this.props.navigation.navigate("MapScreen");
+  }
+
+  render() {
+    return (
+      <View style={styles.navigationBlock}>
+        <NavigationItem
+          action={this.goToMapScreen.bind(this)}
+          isActive={this.state.isMap}
+          title="Map"
+        />
+        <NavigationItem
+          action={this.goToLocationsScreen.bind(this)}
+          isActive={!this.state.isMap}
+          title="Saved Locations"
+        />
+      </View>
+    );
+  }
 }
+
+export default connect(mapStateToProps)(Navigation);
+

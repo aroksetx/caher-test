@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import { MapView, Components } from "expo";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, Dimensions, TouchableOpacity } from "react-native";
-
-
+import {
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  View,
+  Text
+} from "react-native";
+import { connect } from "react-redux";
+import {
+  getLocationsList,
+  getDeviceCurrentLocation
+} from "../../services/LocationsService";
+import { locationsStateActions } from "../../reducers/locations.reducer";
+import { ViewPagerAndroid } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 const ASPECT_RATIO = width / height;
@@ -17,45 +28,82 @@ function randomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-export default class Map extends Component {
+class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialRegion: {},
-      listOfRegions: [],
-      region: {
-        latitude: LATITUDE,
-        longitude: LONGITUDE,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA
+      initialRegion: {
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.015,
+        longitudeDelta: 0.0121
       },
       markers: []
     };
   }
 
-  setInitialRegion(initialRegion) {
-    this.setState({ initialRegion });
+  componentDidMount() {
+    const { dispatch, locations } = this.props;
+
+    getDeviceCurrentLocation().then(({ coords }) => {
+      this.setState({
+        initialRegion: {
+          ...this.state.initialRegion,
+          latitude: coords.latitude,
+          longitude: coords.longitude
+        }
+      });
+    });
+
+    getLocationsList().then(({ locations }) =>
+      dispatch({
+        type: locationsStateActions.ADD_NEW_LOCATION,
+        payloader: locations
+      })
+    );
   }
 
-  pressIt(e) {
+  componentWillReceiveProps({ locations }) {
+    const coordinates = this.formatLocationData(locations.locations);
+
     this.setState({
-      markers: [
-        ...this.state.markers,
-        {
-          coordinate: e.nativeEvent.coordinate,
-          key: id++,
-          color: randomColor()
-        }
-      ]
+      markers: [...this.state.markers, ...coordinates]
     });
   }
 
+  formatLocationData(locationList) {
+    return locationList.map(location => {
+      return {
+        name: location.name,
+        coordinate: {
+          latitude: location.lat,
+          longitude: location.lng
+        }
+      };
+    });
+  }
+
+  pressIt(e) {
+    console.log(e.nativeEvent.coordinate)
+    // this.setState({
+    //   markers: [
+    //     ...this.state.markers,
+    //     {
+    //       coordinate: e.nativeEvent.coordinate,
+    //       key: id++,
+    //       color: randomColor()
+    //     }
+    //   ]
+    // });
+  }
+
   render() {
-    const markers = this.state.markers.map(marker => (
+    const markers = this.state.markers.map((marker, index) => (
       <Marker
-        key={marker.key}
+        key={"marker" + index}
+        title={marker.name}
+        description={"*"}
         coordinate={marker.coordinate}
-        pinColor={marker.color}
       />
     ));
 
@@ -63,21 +111,12 @@ export default class Map extends Component {
       <MapView
         style={styles.map}
         showsUserLocation
+        cacheEnabled={true}
+        followsUserLocation={true}
         provider={PROVIDER_GOOGLE}
         onPress={e => this.pressIt(e)}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121
-        }}
+        region={this.state.initialRegion}
       >
-        {/*<Marker*/}
-        {/*coordinate={{ latitude: 37.78825,*/}
-        {/*longitude: -122.4324}}*/}
-        {/*title="234224"*/}
-        {/*description="23423423423423"*/}
-        {/*/>*/}
         {markers}
       </MapView>
     );
@@ -89,3 +128,9 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
+
+const mapStateToProps = state => ({
+  locations: state.locationsState
+});
+
+export default connect(mapStateToProps)(Map);
