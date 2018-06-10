@@ -85,16 +85,16 @@ class Map extends Component {
 
   pressIt(e) {
     console.log(e.nativeEvent.coordinate)
-    // this.setState({
-    //   markers: [
-    //     ...this.state.markers,
-    //     {
-    //       coordinate: e.nativeEvent.coordinate,
-    //       key: id++,
-    //       color: randomColor()
-    //     }
-    //   ]
-    // });
+    this.setState({
+      markers: [
+        ...this.state.markers,
+        {
+          coordinate: e.nativeEvent.coordinate,
+          key: id++,
+          color: randomColor()
+        }
+      ]
+    });
   }
 
   render() {
