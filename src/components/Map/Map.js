@@ -46,6 +46,10 @@ class Map extends Component {
     const { dispatch, locations } = this.props;
 
     getDeviceCurrentLocation().then(({ coords }) => {
+      dispatch({
+        type: locationsStateActions.SET_DEVICE_LAST_LOCATION,
+        payloader: coords
+      });
       this.setState({
         initialRegion: {
           ...this.state.initialRegion,
@@ -91,9 +95,9 @@ class Map extends Component {
       type: locationsStateActions.ADD_NEW_LOCATION,
       payloader: [
         {
+          name: "Lola",
           lat: latitude,
-          lng: longitude,
-          name: "Lola"
+          lng: longitude
         }
       ]
     });
