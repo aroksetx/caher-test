@@ -11,7 +11,7 @@ class MapScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showEditWindow: false
+      showEditWindow: true
     };
   }
 
@@ -51,30 +51,55 @@ const styles = StyleSheet.create({
   }
 });
 
-const MapMarkerCreationWindow = props => {
-  return (
-    <View style={styles.newMarkerBlock}>
-      <View style={{ flex: 1 }}>
-        <TextInput style={styles.markerNameInput} placeholder="Marker name" />
-        <TextInput
-          style={styles.markerNameInput}
-          placeholder="Marker description"
-        />
+class MapMarkerCreationWindow extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      description: "",
+    };
+  }
+  saveMarker = () => {
+    console.log("Save Marker");
+  };
+
+  removeMarker = () => {
+    console.log("Remove Marker");
+  };
+
+  render() {
+    return (
+      <View style={styles.newMarkerBlock}>
+        <View style={{ flex: 1 }}>
+          <TextInput
+            style={{ height: 40 }}
+            placeholder="Type marker name!"
+            onChangeText={name => this.setState({ name })}
+          />
+           <TextInput
+            style={{ height: 40 }}
+            placeholder="Type marker description!"
+            onChangeText={description => this.setState({ description })}
+          />
+        </View>
+        <View style={{ flex: 2, flexDirection: "row" }}>
+          <Button
+            title="Save Marker"
+            onPress={this.saveMarker}
+            color="#841584"
+            disabled={this.state.name.length === 0 || this.state.name.trim() === ''}
+            accessibilityLabel="Learn more about this purple button"
+          />
+          <Button
+            title="Decline Marker"
+            color="red"
+            onPress={this.removeMarker}
+            accessibilityLabel="Learn more about this purple button"
+          />
+        </View>
       </View>
-      <View style={{ flex: 2, flexDirection: "row" }}>
-        <Button
-          title="Save Marker"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-        <Button
-          title="Decline Marker"
-          color="red"
-          accessibilityLabel="Learn more about this purple button"
-        />
-      </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 export default MapScreen;
