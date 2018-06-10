@@ -83,15 +83,17 @@ class Map extends Component {
     });
   }
 
-  pressIt(e) {
-    console.log(e.nativeEvent.coordinate)
-    this.setState({
-      markers: [
-        ...this.state.markers,
+  pressIt(event) {
+    const { dispatch } = this.props;
+    const { latitude, longitude } = event.nativeEvent.coordinate;
+
+    dispatch({
+      type: locationsStateActions.ADD_NEW_LOCATION,
+      payloader: [
         {
-          coordinate: e.nativeEvent.coordinate,
-          key: id++,
-          color: randomColor()
+          lat: latitude,
+          lng: longitude,
+          name: "Lola"
         }
       ]
     });
@@ -112,9 +114,9 @@ class Map extends Component {
         style={styles.map}
         showsUserLocation
         cacheEnabled={true}
+        onLongPress={e => this.pressIt(e)}
         followsUserLocation={true}
         provider={PROVIDER_GOOGLE}
-        onPress={e => this.pressIt(e)}
         region={this.state.initialRegion}
       >
         {markers}

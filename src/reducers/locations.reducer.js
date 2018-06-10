@@ -14,6 +14,7 @@ export const locationsState = (state = initiaLocationsState, action) => {
       return {
         ...state,
         locations: [
+          ...state.locations,
           ...action.payloader
         ]
       };

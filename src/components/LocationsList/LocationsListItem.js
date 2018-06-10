@@ -5,7 +5,6 @@ import styles from './LocationListStyle'
 export default class LocationsListItem extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
     }
 
     render() {

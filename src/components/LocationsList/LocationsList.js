@@ -18,8 +18,6 @@ class LocationList extends Component {
   }
 
   render() {
-    console.log(this.state.locations);
-
     const locations = this.state.markers.map((location, index) => (
       <LocationsListItem
         key={location.name + index}
