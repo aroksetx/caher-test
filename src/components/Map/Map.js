@@ -9,24 +9,9 @@ import {
   Text
 } from "react-native";
 import { connect } from "react-redux";
-import {
-  getLocationsList,
-  getDeviceCurrentLocation
-} from "../../services/LocationsService";
+import { getDeviceCurrentLocation } from "../../services/LocationsService";
 import { locationsStateActions } from "../../reducers/locations.reducer";
 import { ViewPagerAndroid } from "react-native-gesture-handler";
-
-const { width, height } = Dimensions.get("window");
-const ASPECT_RATIO = width / height;
-const LATITUDE = 37.78825;
-const LONGITUDE = -122.4324;
-const LATITUDE_DELTA = 0.0922;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-let id = 0;
-
-function randomColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
 
 class Map extends Component {
   constructor(props) {
@@ -44,7 +29,6 @@ class Map extends Component {
 
   componentDidMount() {
     const { dispatch, locations } = this.props;
-
     getDeviceCurrentLocation().then(({ coords }) => {
       dispatch({
         type: locationsStateActions.SET_DEVICE_LAST_LOCATION,
@@ -58,18 +42,11 @@ class Map extends Component {
         }
       });
     });
-
-    getLocationsList().then(({ locations }) =>
-      dispatch({
-        type: locationsStateActions.ADD_NEW_LOCATION,
-        payloader: locations
-      })
-    );
   }
 
   componentWillReceiveProps({ locations }) {
     const coordinates = this.formatLocationData(locations.locations);
-
+    console.log("Triggered");
     this.setState({
       markers: [...this.state.markers, ...coordinates]
     });
