@@ -47,7 +47,7 @@ class Map extends Component {
   componentWillReceiveProps({ locations }) {
     const coordinates = this.formatLocationData(locations.locations);
     this.setState({
-      markers: [...this.state.markers, ...coordinates]
+      markers: coordinates
     });
   }
 
@@ -55,6 +55,7 @@ class Map extends Component {
     return locationList.map(location => {
       return {
         name: location.name,
+        description: location.description,
         coordinate: {
           latitude: location.lat,
           longitude: location.lng
@@ -94,7 +95,7 @@ class Map extends Component {
       <Marker
         key={"marker" + index}
         title={marker.name}
-        description={"*"}
+        description={marker.description}
         onPress={e => this.getMarkerInfo(e)}
         coordinate={marker.coordinate}
       />

@@ -5,7 +5,7 @@ import Map from "../components/Map/Map";
 import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
 import { connect } from "react-redux";
 import { locationsStateActions } from "../reducers/locations.reducer";
-import { find } from "lodash";
+import { find, findIndex } from "lodash";
 
 class MapScreen extends Component {
   static navigationOptions = {
@@ -30,11 +30,35 @@ class MapScreen extends Component {
   }
 
   removeMarker(markerData) {
-    console.log("Remove/Decline marker");
+    const { dispatch, locations } = this.props;
+    const markerIndex = findIndex(locations.locations, {
+      lat: markerData.lat,
+      lng: markerData.lng
+    });
+
+    dispatch({
+      type: locationsStateActions.REMOVE_LOCATION,
+      payloader: {
+        index: markerIndex
+      }
+    });
+    this.declineMarker();
   }
 
   updateMarker(markerData) {
-    console.log("Update Marker");
+    const { dispatch, locations } = this.props;
+    const markerIndex = findIndex(locations.locations, {
+      lat: markerData.lat,
+      lng: markerData.lng
+    });
+    dispatch({
+      type: locationsStateActions.UPDATE_LOCATION,
+      payloader: {
+        marker: markerData,
+        index: markerIndex
+      }
+    });
+    this.declineMarker();
   }
 
   declineMarker() {
@@ -58,7 +82,7 @@ class MapScreen extends Component {
     const marker = isNew
       ? this.toLatAndLog(markerPoint)
       : find(locations.locations, this.toLatAndLog(markerPoint));
-      
+
     const editWindow = isEdit ? (
       <MapMarkerCreationWindow
         isNew={isNew}

@@ -25,10 +25,10 @@ export default class MapMarkerCreationWindow extends Component {
   constructor(props) {
     super(props);
     const { marker, isNew } = this.props;
-    
+
     this.state = {
-      name: isNew ? '' : marker.name,
-      description: isNew ? '' : marker.description,
+      name: isNew ? "" : marker.name,
+      description: isNew ? "" : marker.description,
       lat: marker.lat,
       lng: marker.lng
     };
@@ -39,12 +39,24 @@ export default class MapMarkerCreationWindow extends Component {
     onAddMarker(this.state);
   };
 
+  updateMarker = () => {
+    const { onUpdateMarker } = this.props;
+    onUpdateMarker(this.state);
+  };
+
   removeMarker = () => {
     const { onRemoveMarker, onDeclineMarker, isNew } = this.props;
     isNew ? onDeclineMarker() : onRemoveMarker(this.state);
   };
 
   render() {
+    const { isNew } = this.props;
+    const buttonTextConfig = {
+      add: "Add marker",
+      update: "Update marker",
+      remove: "Remove marker",
+      decline: "Decline marker"
+    };
     return (
       <View style={styles.newMarkerBlock}>
         <View style={{ flex: 1 }}>
@@ -63,8 +75,8 @@ export default class MapMarkerCreationWindow extends Component {
         </View>
         <View style={{ flex: 2, flexDirection: "row" }}>
           <Button
-            title="Save Marker"
-            onPress={this.saveMarker}
+            title={isNew ? buttonTextConfig.add : buttonTextConfig.update}
+            onPress={isNew ? this.saveMarker : this.updateMarker}
             color="#841584"
             disabled={
               this.state.name.length === 0 || this.state.name.trim() === ""
@@ -72,7 +84,7 @@ export default class MapMarkerCreationWindow extends Component {
             accessibilityLabel="Learn more about this purple button"
           />
           <Button
-            title="Decline Marker"
+            title={isNew ? buttonTextConfig.decline : buttonTextConfig.remove}
             color="red"
             onPress={this.removeMarker}
             accessibilityLabel="Learn more about this purple button"

@@ -22,7 +22,26 @@ export const locationsState = (state = initiaLocationsState, action) => {
         ...state,
         locations: [...state.locations, ...action.payloader]
       };
-      
+
+    case locationsStateActions.UPDATE_LOCATION:
+      const { index, marker } = action.payloader;
+
+      return {
+        ...state,
+        locations: state.locations.map(
+          (item, itemIndex) =>
+            itemIndex === index ? { ...item, ...marker } : item
+        )
+      };
+
+    case locationsStateActions.REMOVE_LOCATION:
+      return {
+        ...state,
+        locations: state.locations.filter(
+          (item, itemIndex) => itemIndex !== action.payloader.index
+        )
+      };
+
     case locationsStateActions.SET_DEVICE_LAST_LOCATION:
       return {
         ...state,
@@ -44,7 +63,7 @@ export const locationsState = (state = initiaLocationsState, action) => {
         markerPoint: action.payloader,
         isNew: false
       };
-      
+
     default:
       return state;
   }
