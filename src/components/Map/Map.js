@@ -46,7 +46,6 @@ class Map extends Component {
 
   componentWillReceiveProps({ locations }) {
     const coordinates = this.formatLocationData(locations.locations);
-    console.log("Triggered");
     this.setState({
       markers: [...this.state.markers, ...coordinates]
     });
@@ -64,20 +63,30 @@ class Map extends Component {
     });
   }
 
-  pressIt(event) {
+  addNewMarker(event) {
     const { dispatch } = this.props;
+    const { coordinate } = event.nativeEvent;
     const { latitude, longitude } = event.nativeEvent.coordinate;
+    dispatch({
+      type: locationsStateActions.SHOW_MARKER_DETAIL_VIEW,
+      payloader: {
+        coordinate: coordinate,
+        isNew: true
+      }
+    });
+  }
+
+  getMarkerInfo(event) {
+    const { dispatch } = this.props;
+    const { coordinate } = event.nativeEvent;
 
     dispatch({
-      type: locationsStateActions.ADD_NEW_LOCATION,
-      payloader: [
-        {
-          name: "Lola",
-          lat: latitude,
-          lng: longitude
-        }
-      ]
-    });
+      type: locationsStateActions.SHOW_MARKER_DETAIL_VIEW,
+      payloader: {
+        coordinate: coordinate,
+        isNew: false
+      }
+    })
   }
 
   render() {
@@ -86,6 +95,7 @@ class Map extends Component {
         key={"marker" + index}
         title={marker.name}
         description={"*"}
+        onPress={e => this.getMarkerInfo(e)}
         coordinate={marker.coordinate}
       />
     ));
@@ -95,7 +105,7 @@ class Map extends Component {
         style={styles.map}
         showsUserLocation
         cacheEnabled={true}
-        onLongPress={e => this.pressIt(e)}
+        onLongPress={e => this.addNewMarker(e)}
         followsUserLocation={true}
         provider={PROVIDER_GOOGLE}
         region={this.state.initialRegion}

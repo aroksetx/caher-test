@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Navigation from "../components/Navigation/Navigation";
 import Map from "../components/Map/Map";
+import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
+import { connect } from "react-redux";
+import { locationsStateActions } from "../reducers/locations.reducer";
+import { find } from "lodash";
 
 class MapScreen extends Component {
   static navigationOptions = {
@@ -11,14 +15,59 @@ class MapScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showEditWindow: true
+      showEditWindow: false
     };
   }
 
-  addNewMapMarker() {}
+  addMarker(markerData) {
+    console.log("Add new marker", markerData);
+    const { dispatch } = this.props;
+    dispatch({
+      type: locationsStateActions.ADD_NEW_LOCATION,
+      payloader: [markerData]
+    });
+    this.declineMarker();
+  }
+
+  removeMarker(markerData) {
+    console.log("Remove/Decline marker");
+  }
+
+  updateMarker(markerData) {
+    console.log("Update Marker");
+  }
+
+  declineMarker() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: locationsStateActions.HIDE_MARKER_DETAIL_VIEW,
+      payloader: {}
+    });
+  }
+
+  toLatAndLog(coordinates) {
+    return {
+      lat: coordinates.latitude,
+      lng: coordinates.longitude
+    };
+  }
+
   render() {
-    const editWindow = this.state.showEditWindow ? (
-      <MapMarkerCreationWindow />
+    const { locations, dispatch } = this.props;
+    const { isEdit, markerPoint, isNew } = locations;
+    const marker = isNew
+      ? this.toLatAndLog(markerPoint)
+      : find(locations.locations, this.toLatAndLog(markerPoint));
+      
+    const editWindow = isEdit ? (
+      <MapMarkerCreationWindow
+        isNew={isNew}
+        marker={marker}
+        onAddMarker={this.addMarker.bind(this)}
+        onRemoveMarker={this.removeMarker.bind(this)}
+        onUpdateMarker={this.updateMarker.bind(this)}
+        onDeclineMarker={this.declineMarker.bind(this)}
+      />
     ) : (
       ""
     );
@@ -51,55 +100,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class MapMarkerCreationWindow extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      description: "",
-    };
-  }
-  saveMarker = () => {
-    console.log("Save Marker");
-  };
-
-  removeMarker = () => {
-    console.log("Remove Marker");
-  };
-
-  render() {
-    return (
-      <View style={styles.newMarkerBlock}>
-        <View style={{ flex: 1 }}>
-          <TextInput
-            style={{ height: 40 }}
-            placeholder="Type marker name!"
-            onChangeText={name => this.setState({ name })}
-          />
-           <TextInput
-            style={{ height: 40 }}
-            placeholder="Type marker description!"
-            onChangeText={description => this.setState({ description })}
-          />
-        </View>
-        <View style={{ flex: 2, flexDirection: "row" }}>
-          <Button
-            title="Save Marker"
-            onPress={this.saveMarker}
-            color="#841584"
-            disabled={this.state.name.length === 0 || this.state.name.trim() === ''}
-            accessibilityLabel="Learn more about this purple button"
-          />
-          <Button
-            title="Decline Marker"
-            color="red"
-            onPress={this.removeMarker}
-            accessibilityLabel="Learn more about this purple button"
-          />
-        </View>
-      </View>
-    );
-  }
-}
-
-export default MapScreen;
+const mapStateToProps = state => ({
+  locations: state.locationsState
+});
+export default connect(mapStateToProps)(MapScreen);
