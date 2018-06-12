@@ -23,9 +23,9 @@ export default class ApplicationDb {
     });
   }
 
-  updateItem() {
+  updateItem(name, description, lat, lng) {
       this.db.transaction(trans => {
-          trans.executeSql(`update locations set done = 1 where id = ?;`, [id]);
+          trans.executeSql(`update locations set (name, description, lat, lng) values (?, ?, ?, ?) where id = ?;`, name, description, lat, lng, id]);
       });
   }
 
@@ -35,7 +35,7 @@ export default class ApplicationDb {
             trans => {
                 trans.executeSql(
               "insert into locations (name, description, lat, lng) values (?, ?, ?, ?)",
-              [name, description, lat, lng]
+              name, description, lat, lng
             );
           },
           error => reject(error),
