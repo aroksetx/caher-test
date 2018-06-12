@@ -93,7 +93,7 @@ class MapScreen extends Component {
         onDeclineMarker={this.declineMarker.bind(this)}
       />
     ) : (
-      ""
+      <View></View>
     );
 
     return (

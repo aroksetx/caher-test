@@ -1,25 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
-import { connect } from "react-redux";
 import { locationsStateActions } from "../../reducers/locations.reducer";
-
-const styles = StyleSheet.create({
-  contentBlock: {
-    flex: 1
-  },
-  newMarkerBlock: {
-    flex: 1,
-    flexDirection: "column",
-    backgroundColor: "rgba(255,255,255,0.7)"
-  },
-  markerNameInput: {
-    flex: 1,
-    flexDirection: "row",
-    borderColor: "rgba(0,0,0,0.2)",
-    borderWidth: 1,
-    padding: 15
-  }
-});
+import { isNil } from 'lodash';
 
 export default class MapMarkerCreationWindow extends Component {
   constructor(props) {
@@ -27,8 +9,8 @@ export default class MapMarkerCreationWindow extends Component {
     const { marker, isNew } = this.props;
 
     this.state = {
-      name: isNew ? "" : marker.name,
-      description: isNew ? "" : marker.description,
+      name: (isNil(isNew) || isNew) ? '' : marker.name,
+      description: (isNil(isNew) || isNew)  ? '' : marker.description,
       lat: marker.lat,
       lng: marker.lng
     };
@@ -94,3 +76,21 @@ export default class MapMarkerCreationWindow extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  contentBlock: {
+    flex: 1
+  },
+  newMarkerBlock: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "rgba(255,255,255,0.7)"
+  },
+  markerNameInput: {
+    flex: 1,
+    flexDirection: "row",
+    borderColor: "rgba(0,0,0,0.2)",
+    borderWidth: 1,
+    padding: 15
+  }
+});
