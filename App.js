@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { middleware } from "./src/utils/redux";
 import AppReducer from "./src/reducers";
 import logger from "redux-logger";
+import Db from './src/services/dbService';
 
 import { getLocationsList } from "./src/services/LocationsService";
 import { locationsStateActions } from "./src/reducers/locations.reducer";
@@ -17,6 +18,7 @@ const store = createStore(AppReducer, applyMiddleware(middleware, logger));
 export default class App extends React.Component {
   constructor() {
     super();
+    const aa = new Db('test');
   }
 
   componentDidMount() {

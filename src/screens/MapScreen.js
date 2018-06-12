@@ -93,13 +93,29 @@ class MapScreen extends Component {
         onDeclineMarker={this.declineMarker.bind(this)}
       />
     ) : (
-      <View></View>
+      <View style={{ flex: 1 }} />
     );
 
+    const showMapMarkerCreationWindow = () => {
+      if(isEdit) {
+        return (
+          <MapMarkerCreationWindow
+            isNew={isNew}
+            marker={marker}
+            onAddMarker={this.addMarker.bind(this)}
+            onRemoveMarker={this.removeMarker.bind(this)}
+            onUpdateMarker={this.updateMarker.bind(this)}
+            onDeclineMarker={this.declineMarker.bind(this)}
+          />
+        )
+      }
+    }
     return (
       <View style={styles.contentBlock}>
         <Map />
         {editWindow}
+
+        {/* {showMapMarkerCreationWindow} */}
         <Navigation navigation={this.props.navigation} />
       </View>
     );
