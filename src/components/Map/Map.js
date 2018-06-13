@@ -86,7 +86,6 @@ class Map extends Component {
   addNewMarker(event) {
     const { dispatch } = this.props;
     const { coordinate } = event.nativeEvent;
-    const { latitude, longitude } = event.nativeEvent.coordinate;
     dispatch({
       type: locationsStateActions.SHOW_MARKER_DETAIL_VIEW,
       payloader: {
@@ -111,13 +110,10 @@ class Map extends Component {
 
   render() {
     const { locations } = this.props;
-    const { isNew, isEdit, markerPoint } = locations;
 
     const markers = this.state.markers.map((marker, index) => (
       <Marker
         key={"marker" + index}
-        title={marker.name}
-        description={marker.description}
         onPress={e => this.getMarkerInfo(e)}
         coordinate={marker.coordinate}
       />
