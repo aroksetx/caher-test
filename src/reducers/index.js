@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
-import { locationsState } from "./locations.reducer";
-import { authState } from "./auth.reducer";
-import { nav } from "./navigation.reducer";
+import { locationsState } from "./Locations.reducer";
+import { authState } from "./Auth.reducer";
+import { nav } from "./Navigation.reducer";
 
 export default AppReducer = combineReducers({
   nav,

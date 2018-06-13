@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { getDeviceCurrentLocation } from "../../services/LocationsService";
-import { locationsStateActions } from "../../reducers/locations.reducer";
+import { locationsStateActions } from "../../reducers/Locations.reducer";
 import { ViewPagerAndroid } from "react-native-gesture-handler";
 import { isEmpty } from "lodash";
 

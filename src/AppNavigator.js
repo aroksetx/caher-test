@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 import { initializeListeners } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
-import { navigationPropConstructor } from './utils/redux';
+import { navigationPropConstructor } from './utils/Redux';
 import PropTypes from 'prop-types';
 import React from "react";
 import { Easing, Animated } from 'react-native';

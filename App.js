@@ -1,17 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { AppLoading, Asset, Font, MapView } from "expo";
-import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { StyleSheet } from "react-native";
 import AppNavigation from "./src/AppNavigator";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
-import { middleware } from "./src/utils/redux";
+import { createStore, applyMiddleware } from "redux";
+import { middleware } from "./src/utils/Redux";
 import AppReducer from "./src/reducers";
 import logger from "redux-logger";
-import Db from './src/services/dbService';
+import Db from './src/services/DataBaseService';
 
 import { getLocationsList } from "./src/services/LocationsService";
-import { locationsStateActions } from "./src/reducers/locations.reducer";
+import { locationsStateActions } from "./src/reducers/Locations.reducer";
 
 const store = createStore(AppReducer, applyMiddleware(middleware, logger));
 

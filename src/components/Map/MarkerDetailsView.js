@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Platform, Dimensions } from "react-native";
-import { locationsStateActions } from "../../reducers/locations.reducer";
+import { locationsStateActions } from "../../reducers/Locations.reducer";
 import { isNil } from "lodash";
 import {
   Colors,

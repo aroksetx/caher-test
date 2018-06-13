@@ -13,7 +13,7 @@ import Navigation from "../components/Navigation/Navigation";
 import Map from "../components/Map/Map";
 import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
 import { connect } from "react-redux";
-import { locationsStateActions } from "../reducers/locations.reducer";
+import { locationsStateActions } from "../reducers/Locations.reducer";
 import { find, findIndex } from "lodash";
 import Expo from "expo";
 
