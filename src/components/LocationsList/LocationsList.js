@@ -10,8 +10,6 @@ class LocationList extends Component {
     this.state = {
       markers: []
     };
-
-    console.log('Location list constructor');
   }
 
   sortMarkersByDistance({ locations, deviceLocation }) {

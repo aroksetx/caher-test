@@ -132,7 +132,7 @@ class MapScreen extends Component {
 const styles = StyleSheet.create({
   contentBlock: {
     flex: 1,
-    backgroundColor: Platform.OS === "ios" ? "#fff" : "#6200EE",
+    backgroundColor: Platform.OS === "ios" ? "#fff" : "rgb(83, 140, 204)",
     paddingTop: Expo.Constants.statusBarHeight
   },
   newMarkerBlock: {
