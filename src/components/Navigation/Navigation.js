@@ -1,48 +1,48 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from 'react';
+import { View } from 'react-native';
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import styles from "./NavigationStyles";
-import NavigationItem from "./NavigationItem";
-
-const mapStateToProps = state => ({
-  isLoggedIn: 'asdasdasdas'
-});
+import { connect } from 'react-redux';
+import styles from './NavigationStyles';
+import NavigationItem from './NavigationItem';
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMap: true
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            isMap: true
+        };
+    }
 
-  goToLocationsScreen() {
-    this.props.navigation.navigate("LocationsScreen");
-  }
+    goToLocationsScreen() {
+        const {dispatch} = this.props;
+        dispatch({type: 'LocationScreen'});
+    }
 
-  goToMapScreen() {
-    this.props.navigation.navigate("MapScreen");
-  }
+    goToMapScreen() {
+        const {dispatch} = this.props;
+        dispatch({type: 'MapScreen'});
+    }
 
-  render() {
-    return (
-      <View style={styles.navigationBlock}>
-        <NavigationItem
-          action={this.goToMapScreen.bind(this)}
-          isActive={this.state.isMap}
-          title="Map"
-        />
-        <NavigationItem
-          action={this.goToLocationsScreen.bind(this)}
-          isActive={!this.state.isMap}
-          title="Locations"
-        />
-      </View>
-    );
-  }
+    render() {
+        return (
+            <View style={styles.navigationBlock}>
+                <NavigationItem
+                    action={this.goToMapScreen.bind(this)}
+                    isActive={this.state.isMap}
+                    title="Map"
+                />
+                <NavigationItem
+                    action={this.goToLocationsScreen.bind(this)}
+                    isActive={!this.state.isMap}
+                    title="Locations"
+                />
+            </View>
+        );
+    }
 }
 
-export default connect(mapStateToProps)(Navigation);
+const mapStateToProps = state => ({
+    nav: state.nav
+});
 
+export default connect(mapStateToProps)(Navigation);

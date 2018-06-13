@@ -11,18 +11,27 @@ const initialNavState = AppNavigator.router.getStateForAction(
   tempNavState
 );
 
+export const qweqweqwe = {
+    ADD_NEW_LOCATION: "ADD_NEW_LOCATION",
+    REMOVE_LOCATION: "REMOVE_LOCATION",
+    UPDATE_LOCATION: "UPDATE_LOCATION",
+    SET_DEVICE_LAST_LOCATION: "SET_DEVICE_LAST_LOCATION",
+    SHOW_MARKER_DETAIL_VIEW: "SHOW_MARKER_DETAIL_VIEW",
+    HIDE_MARKER_DETAIL_VIEW: "HIDE_MARKER_DETAIL_VIEW"
+};
+
 export const nav = (state = initialNavState, action) => {
   let nextState;
   switch (action.type) {
-    case 'Login':
+    case 'LocationScreen':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.back(),
+        NavigationActions.navigate({ routeName: 'LocationsScreen' }),
         state
       );
       break;
-    case 'Logout':
+    case 'MapScreen':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Login' }),
+        NavigationActions.navigate({ routeName: 'MapScreen' }),
         state
       );
       break;
@@ -31,6 +40,5 @@ export const nav = (state = initialNavState, action) => {
       break;
   }
 
-  // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 }
