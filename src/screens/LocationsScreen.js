@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   navigarionContainer: {
     flex: 1,
+    backgroundColor: "#fff"
   }
 });
 

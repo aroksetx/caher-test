@@ -9,7 +9,6 @@ export default StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: "rgba(255,255,255,0.7)",
-    paddingVertical: 2
   },
   itemBlock: {
     textAlign: "center",
