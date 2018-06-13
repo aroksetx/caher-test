@@ -8,15 +8,18 @@ export default StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "rgba(255,255,255,0.7)",
+    backgroundColor: "rgba(255,255,255,0.9)",
+
+    shadowColor: "rgba(0,0,0, 0.1)",
+    shadowOpacity: 1.0
   },
   itemBlock: {
     textAlign: "center",
     fontWeight: "700"
   },
   buttonContainer: {
-      flex: 1,
-      padding: 10
+    flex: 1,
+    padding: 10
   },
   itemButton: {
     borderRadius: Platform.OS === "ios" ? 20 : 0
