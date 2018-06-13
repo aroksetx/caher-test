@@ -1,12 +1,21 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, TextInput, Button } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+  Dimensions
+} from "react-native";
 import Navigation from "../components/Navigation/Navigation";
 import Map from "../components/Map/Map";
 import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
 import { connect } from "react-redux";
 import { locationsStateActions } from "../reducers/locations.reducer";
 import { find, findIndex } from "lodash";
-import Expo from 'expo';
+import Expo from "expo";
 
 class MapScreen extends Component {
   constructor(props) {
@@ -90,23 +99,24 @@ class MapScreen extends Component {
         onDeclineMarker={this.declineMarker.bind(this)}
       />
     ) : (
-      <View style={{ flex: 1 }} />
+      <View style={styles.editBlock} />
     );
 
     const showMapMarkerCreationWindow = () => {
-      if(isEdit) {
+      if (isEdit) {
         return (
           <MapMarkerCreationWindow
             isNew={isNew}
             marker={marker}
+            style={styles.editBlock}
             onAddMarker={this.addMarker.bind(this)}
             onRemoveMarker={this.removeMarker.bind(this)}
             onUpdateMarker={this.updateMarker.bind(this)}
             onDeclineMarker={this.declineMarker.bind(this)}
           />
-        )
+        );
       }
-    }
+    };
     return (
       <View style={styles.contentBlock}>
         <Map />
@@ -122,10 +132,8 @@ class MapScreen extends Component {
 const styles = StyleSheet.create({
   contentBlock: {
     flex: 1,
-    // backgroundColor: (Platform.OS === 'ios') ? '#fff' : '#6200EE',
-    backgroundColor: '#6200EE',
-    paddingTop: Expo.Constants.statusBarHeight,
-
+    backgroundColor: Platform.OS === "ios" ? "#fff" : "#6200EE",
+    paddingTop: Expo.Constants.statusBarHeight
   },
   newMarkerBlock: {
     flex: 1,
@@ -138,6 +146,12 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
     borderWidth: 1,
     padding: 15
+  },
+  editBlock: {
+    flex: 1,
+    flexDirection: "row",
+    position: "absolute",
+    marginTop: Expo.Constants.statusBarHeight,
   }
 });
 
