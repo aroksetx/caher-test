@@ -14,14 +14,15 @@ import Expo from 'expo';
 export default class MapMarkerCreationWindow extends Component {
     constructor(props) {
         super(props);
-        const {marker, isNew} = this.props;
+        const {marker} = this.props;
 
         this.state = {
-            name: isNil(isNew) || isNew ? '' : marker.name,
-            description: isNil(isNew) || isNew ? '' : marker.description,
+            name: '',
+            description: '',
             lat: marker.lat,
             lng: marker.lng
         };
+
     }
 
     saveMarker = () => {
@@ -45,7 +46,7 @@ export default class MapMarkerCreationWindow extends Component {
     };
 
     render() {
-        const {isNew} = this.props;
+        const {isNew, marker} = this.props;
         const buttonTextConfig = {
             add: 'Add marker',
             update: 'Update marker',
@@ -53,6 +54,7 @@ export default class MapMarkerCreationWindow extends Component {
             decline: 'Decline marker',
             close: 'Cancel'
         };
+
 
         const cancelButton = () => {
             if (!isNew) {
@@ -80,14 +82,14 @@ export default class MapMarkerCreationWindow extends Component {
                         style={styles.inputFields}
                         containerStyle={styles.inputFieldsContainer}
                         placeholder="Type marker name!"
-                        value={this.state.name}
+                        value={isNil(isNew) || isNew ? '' : marker.name}
                         onChangeText={name => this.setState({name})}
                     />
                     <TextInput
                         style={styles.inputFields}
                         containerStyle={styles.inputFieldsContainer}
                         placeholder="Type marker description!"
-                        value={this.state.description}
+                        value={isNil(isNew) || isNew ? '' : marker.description}
                         onChangeText={description => this.setState({description})}
                     />
                 </View>
