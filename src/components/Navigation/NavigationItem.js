@@ -1,21 +1,23 @@
-import React, {Component} from 'react';
-import {
-    Text,
-    View,
-    Button
-} from 'react-native';
-import styles from './NavigationStyles';
+import React, { Component } from "react";
+import { Text, View } from "react-native";
+import { Colors, Button } from "react-native-ui-lib"; //eslint-disable-line
+import styles from "./NavigationStyles";
 
 export default class NavigationItem extends Component {
-    constructor(props){
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <View style={{flex: 1}}>
-                <Button  onPress={this.props.action} title={this.props.title}/>
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={styles.buttonContainer}>
+        <Button
+          size={'medium'}
+          style={styles.itemButton}
+          onPress={this.props.action}
+          label={this.props.title}
+        />
+      </View>
+    );
+  }
 }

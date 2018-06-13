@@ -37,7 +37,7 @@ class Navigation extends Component {
         <NavigationItem
           action={this.goToLocationsScreen.bind(this)}
           isActive={!this.state.isMap}
-          title="Saved Locations"
+          title="Locations"
         />
       </View>
     );
