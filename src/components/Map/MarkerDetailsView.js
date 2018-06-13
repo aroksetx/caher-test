@@ -79,12 +79,12 @@ export default class MapMarkerCreationWindow extends Component {
 
 const styles = StyleSheet.create({
   contentBlock: {
-    flex: 1
+    flex: 1,
   },
   newMarkerBlock: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "rgba(255,255,255,0.7)"
+    backgroundColor: "rgba(255,255,255, 1)"
   },
   markerNameInput: {
     flex: 1,

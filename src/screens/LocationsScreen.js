@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Navigation from '../components/Navigation/Navigation';
 import LocationList from '../components/LocationsList/LocationsList';
+import Expo from 'expo';
 
 const styles = StyleSheet.create({
     contentBlock: {

@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { Platform, StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Navigation from "../components/Navigation/Navigation";
 import Map from "../components/Map/Map";
 import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
 import { connect } from "react-redux";
 import { locationsStateActions } from "../reducers/locations.reducer";
 import { find, findIndex } from "lodash";
+import Expo from 'expo';
 
 class MapScreen extends Component {
-  static navigationOptions = {
-    headerTitle: <Text>Map location</Text>
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -124,7 +121,11 @@ class MapScreen extends Component {
 
 const styles = StyleSheet.create({
   contentBlock: {
-    flex: 1
+    flex: 1,
+    // backgroundColor: (Platform.OS === 'ios') ? '#fff' : '#6200EE',
+    backgroundColor: '#6200EE',
+    paddingTop: Expo.Constants.statusBarHeight,
+
   },
   newMarkerBlock: {
     flex: 1,

@@ -18,7 +18,7 @@ const store = createStore(AppReducer, applyMiddleware(middleware, logger));
 export default class App extends React.Component {
   constructor() {
     super();
-    const aa = new Db('test');
+    const dataBase = new Db('testLocations');
   }
 
   componentDidMount() {

@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { getDeviceCurrentLocation } from "../../services/LocationsService";
 import { locationsStateActions } from "../../reducers/locations.reducer";
 import { ViewPagerAndroid } from "react-native-gesture-handler";
+import { isEmpty } from "lodash";
 
 class Map extends Component {
   constructor(props) {
@@ -42,6 +43,24 @@ class Map extends Component {
         }
       });
     });
+  }
+
+  componentWillUpdate(){
+    // const { locations } = this.props;
+    // const { isNew, markerPoint } = locations;
+    // console.log('Llalalal')
+    // console.log(isEmpty(markerPoint))
+    // console.log(markerPoint)
+    //   if (!isEmpty(markerPoint)) {
+    //   console.log(this.state.initialRegion)
+    //   this.setState({
+    //     initialRegion: {
+    //       ...this.state.initialRegion,
+    //       markerPoint
+    //     }
+    //   });
+    //   console.log(this.state.initialRegion)
+    // }
   }
 
   componentWillReceiveProps({ locations }) {
@@ -87,10 +106,13 @@ class Map extends Component {
         coordinate: coordinate,
         isNew: false
       }
-    })
+    });
   }
 
   render() {
+    const { locations } = this.props;
+    const { isNew, isEdit, markerPoint } = locations;
+
     const markers = this.state.markers.map((marker, index) => (
       <Marker
         key={"marker" + index}
