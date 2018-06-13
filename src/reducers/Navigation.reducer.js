@@ -11,14 +11,6 @@ const initialNavState = AppNavigator.router.getStateForAction(
   tempNavState
 );
 
-export const qweqweqwe = {
-    ADD_NEW_LOCATION: "ADD_NEW_LOCATION",
-    REMOVE_LOCATION: "REMOVE_LOCATION",
-    UPDATE_LOCATION: "UPDATE_LOCATION",
-    SET_DEVICE_LAST_LOCATION: "SET_DEVICE_LAST_LOCATION",
-    SHOW_MARKER_DETAIL_VIEW: "SHOW_MARKER_DETAIL_VIEW",
-    HIDE_MARKER_DETAIL_VIEW: "HIDE_MARKER_DETAIL_VIEW"
-};
 
 export const nav = (state = initialNavState, action) => {
   let nextState;
@@ -41,4 +33,12 @@ export const nav = (state = initialNavState, action) => {
   }
 
   return nextState || state;
-}
+};
+
+
+export const qweqweqwe = {
+    ADD_NEW_LOCATION: "ADD_NEW_LOCATION",
+    REMOVE_LOCATION: "REMOVE_LOCATION",
+    UPDATE_LOCATION: "UPDATE_LOCATION",
+    HIDE_MARKER_DETAIL_VIEW: "HIDE_MARKER_DETAIL_VIEW"
+};

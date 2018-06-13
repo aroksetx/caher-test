@@ -102,28 +102,11 @@ class MapScreen extends Component {
       <View style={styles.editBlock} />
     );
 
-    const showMapMarkerCreationWindow = () => {
-      if (isEdit) {
-        return (
-          <MapMarkerCreationWindow
-            isNew={isNew}
-            marker={marker}
-            style={styles.editBlock}
-            onAddMarker={this.addMarker.bind(this)}
-            onRemoveMarker={this.removeMarker.bind(this)}
-            onUpdateMarker={this.updateMarker.bind(this)}
-            onDeclineMarker={this.declineMarker.bind(this)}
-          />
-        );
-      }
-    };
     return (
       <View style={styles.contentBlock}>
         <Map />
         {editWindow}
-
-        {/* {showMapMarkerCreationWindow} */}
-        <Navigation navigation={this.props.navigation} />
+        <Navigation />
       </View>
     );
   }
