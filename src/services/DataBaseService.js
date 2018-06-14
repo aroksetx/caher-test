@@ -9,8 +9,6 @@ export default class DataBaseService {
             )
         );
 
-
-        this.getItems().then(data => console.log(data));
     }
 
     getItems() {
@@ -19,7 +17,7 @@ export default class DataBaseService {
                 trans.executeSql(
                     `select * from locations`,
                     [],
-                    (_, {rows}) => resolve(JSON.stringify(rows)),
+                    (_, {rows}) => resolve(rows),
                     (_, {message}) => reject(message)
                 );
             });
