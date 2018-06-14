@@ -15,8 +15,7 @@ export default class DataBaseService {
         return new Promise((resolve, reject) => {
             this.db.readTransaction(trans => {
                 trans.executeSql(
-                    `select * from locations`,
-                    [],
+                    `select * from locations`, [],
                     (_, {rows}) => resolve(rows),
                     (_, {message}) => reject(message)
                 );
@@ -27,7 +26,6 @@ export default class DataBaseService {
     isCoordinatesExist({lat, lng}) {
         return new Promise((resolve, reject) => {
             this.db.readTransaction(trans => {
-
                 trans.executeSql(
                     `select * from locations where lat=? and lng=?`, [lat, lng],
                     (_, {rows}) => resolve(rows),

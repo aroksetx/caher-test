@@ -7,7 +7,7 @@ import AppReducer from './src/reducers';
 import logger from 'redux-logger';
 import DB from './src/services/DataBaseService';
 import { isNil, isEmpty } from 'lodash';
-import { getLocationsList } from './src/services/LocationsService';
+import { getDeviceCurrentLocation, getLocationsList } from './src/services/LocationsService';
 import { LocationsStateActions } from './src/actions';
 import config from './src/config';
 
@@ -17,7 +17,7 @@ export default class App extends React.Component {
     constructor() {
         super();
         this.dataBase = new DB(config.dbName);
-        this.dataBase.getItems().then(data => console.log(data))
+        this.dataBase.getItems().then(data => console.log(data));
     }
 
     componentDidMount() {

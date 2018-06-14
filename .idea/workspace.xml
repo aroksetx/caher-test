@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81df301-be9f-4801-9aaf-17bcc1fb210c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LocationsList/LocationsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LocationsList/LocationsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Map/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Map/Map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/MapScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MapScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/DataBaseService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DataBaseService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,26 +20,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5244123">
+    <splitter split-orientation="horizontal" split-proportion="0.4207354">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/App.js">
+          <file leaf-file-name="LocationsList.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsList.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Map.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/Map/Map.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="84" column="57" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="57" />
+                <state relative-caret-position="291">
+                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -48,11 +35,48 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MapScreen.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/screens/MapScreen.js">
+          <file leaf-file-name="Navigation.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/Navigation/Navigation.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                <state relative-caret-position="469">
+                  <caret line="35" column="64" lean-forward="true" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LocationsListItem.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Locations.reducer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/reducers/Locations.reducer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Map.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/Map/Map.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -63,49 +87,11 @@
           <file leaf-file-name="Navigation.reducer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/reducers/Navigation.reducer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="6" column="70" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="70" />
+                <state relative-caret-position="196">
+                  <caret line="20" column="33" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="33" />
                   <folding>
                     <element signature="e#0#53#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AppNavigator.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/AppNavigator.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="16">
-                  <caret line="12" column="25" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#56#0" expanded="true" />
-                    <element signature="e#583#1356#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Redux.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/utils/Redux.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#0#130#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="DataBaseService.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/services/DataBaseService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="226">
-                  <caret line="48" column="39" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -146,11 +132,13 @@
         <option value="$PROJECT_DIR$/src/components/Navigation/NavigationItem.js" />
         <option value="$PROJECT_DIR$/src/reducers/Navigation.reducer.js" />
         <option value="$PROJECT_DIR$/src/AppNavigator.js" />
-        <option value="$PROJECT_DIR$/src/components/Map/Map.js" />
         <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/src/screens/MapScreen.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/src/services/DataBaseService.js" />
-        <option value="$PROJECT_DIR$/src/screens/MapScreen.js" />
+        <option value="$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js" />
+        <option value="$PROJECT_DIR$/src/components/LocationsList/LocationsList.js" />
+        <option value="$PROJECT_DIR$/src/components/Map/Map.js" />
       </list>
     </option>
   </component>
@@ -186,6 +174,33 @@
               <item name="caher-task" type="b2602c69:ProjectViewProjectNode" />
               <item name="caher-task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="caher-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caher-task" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="caher-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caher-task" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="LocationsList" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="caher-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caher-task" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Map" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="caher-task" type="b2602c69:ProjectViewProjectNode" />
+              <item name="caher-task" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,7 +242,7 @@
       <updated>1528906762800</updated>
       <workItem from="1528906765735" duration="402000" />
       <workItem from="1528911054633" duration="171000" />
-      <workItem from="1528922779482" duration="14749000" />
+      <workItem from="1528922779482" duration="18057000" />
     </task>
     <task id="LOCAL-00001" summary="change service name">
       <created>1528925269636</created>
@@ -285,11 +300,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528937617309</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add local storage for data">
+      <created>1528979217605</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1528979217605</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15322000" />
+    <option name="totallyTimeSpent" value="18630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="24" width="1680" height="974" extended-state="6" />
@@ -298,13 +320,13 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.3295325" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.22006841" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Quokka" order="7" />
+      <window_info active="true" anchor="bottom" id="Quokka" order="7" visible="true" weight="0.3295325" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295325" />
       <window_info anchor="bottom" id="RNConsole" order="7" weight="0.3295325" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17480409" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -357,7 +379,8 @@
     <MESSAGE value="add redux navigation" />
     <MESSAGE value="add separated actions" />
     <MESSAGE value="add data sync with db" />
-    <option name="LAST_COMMIT_MESSAGE" value="add data sync with db" />
+    <MESSAGE value="add local storage for data" />
+    <option name="LAST_COMMIT_MESSAGE" value="add local storage for data" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/App.js">
@@ -414,15 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/NavigationItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -433,36 +447,10 @@
     <entry file="file://$PROJECT_DIR$/src/services/LocationsService.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Locations.reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Map/MarkerDetailsView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="41" lean-forward="true" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -507,16 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/Navigation.reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="6" column="70" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -524,20 +502,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Map/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="84" column="57" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/DataBaseService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="48" column="39" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="39" />
+        <state relative-caret-position="450">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -553,10 +521,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+        <state relative-caret-position="301">
+          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/Locations.reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsListItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.jsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.jsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/Navigation.reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LocationsList/LocationsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Navigation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="35" column="64" lean-forward="true" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Map/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
