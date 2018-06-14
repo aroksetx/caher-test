@@ -46,7 +46,6 @@ export const AppNavigator = createStackNavigator({
   }),
 }
 
-
 );
 
 class AppNavigation extends React.Component {

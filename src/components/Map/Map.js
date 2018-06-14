@@ -24,7 +24,7 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    const { dispatch, locations } = this.props;
+    const { dispatch } = this.props;
     getDeviceCurrentLocation().then(({ coords }) => {
       dispatch({
         type: LocationsStateActions.SET_DEVICE_LAST_LOCATION,

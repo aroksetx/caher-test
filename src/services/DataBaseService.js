@@ -24,6 +24,19 @@ export default class DataBaseService {
         });
     }
 
+    isCoordinatesExist({lat, lng}) {
+        return new Promise((resolve, reject) => {
+            this.db.readTransaction(trans => {
+
+                trans.executeSql(
+                    `select * from locations where lat=? and lng=?`, [lat, lng],
+                    (_, {rows}) => resolve(rows),
+                    (_, {message}) => reject(message)
+                );
+            });
+        });
+    }
+
     updateItem(name, description, lat, lng) {
         this.db.transaction(trans => {
             trans.executeSql(
