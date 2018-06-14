@@ -1,6 +1,7 @@
 import { NavigationActions } from 'react-navigation';
 import { AppNavigator } from '../AppNavigator';
 import { NavigationStateActions } from '../actions';
+import { isNil } from 'lodash';
 
 // Start with two routes: The Main screen, with the Login screen on top.
 const firstAction = AppNavigator.router.getActionForPathAndParams('LocationsScreen');
@@ -24,7 +25,10 @@ export const nav = (state = initialNavState, action) => {
             break;
         case NavigationStateActions.GO_TO_MAP:
             nextState = AppNavigator.router.getStateForAction(
-                NavigationActions.navigate({routeName: 'MapScreen'}),
+                NavigationActions.navigate({
+                    routeName: 'MapScreen',
+                    params: isNil(action.payloader) ? {} : action.payloader
+                }),
                 state
             );
             break;

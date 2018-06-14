@@ -6,8 +6,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { getDeviceCurrentLocation } from '../../services/LocationsService';
-import { LocationsStateActions } from '../../actions';
-import { isEmpty } from 'lodash';
+import { LocationsStateActions, NavigationStateActions } from '../../actions';
+import { isEmpty, find, isNil } from 'lodash';
 
 class Map extends Component {
     constructor(props) {
@@ -37,7 +37,40 @@ class Map extends Component {
                     longitude: coords.longitude
                 }
             });
+
+            this.getRouterParams();
         });
+
+
+
+    }
+
+    getRouterParams() {
+        const {dispatch, nav} = this.props;
+        const {routes} = nav;
+        const {params} = find(routes, {routeName: 'MapScreen'});
+        dispatch({
+            type: LocationsStateActions.HIDE_MARKER_DETAIL_VIEW,
+            payloader: {}
+        });
+
+        if (!isNil(params)) {
+            const {coordinates} = params;
+            this.setState({
+                initialRegion: {
+                    ...this.state.initialRegion,
+                    latitude: coordinates.latitude,
+                    longitude: coordinates.longitude
+                }
+            });
+            dispatch({
+                type: LocationsStateActions.SHOW_MARKER_DETAIL_VIEW,
+                payloader: {
+                    coordinate: coordinates,
+                    isNew: false
+                }
+            });
+        }
     }
 
     componentWillReceiveProps({locations}) {
@@ -63,7 +96,7 @@ class Map extends Component {
     addNewMarker(event) {
         const {dispatch, locations} = this.props;
         const {coordinate} = event.nativeEvent;
-        if(!locations.isEdit){
+        if (!locations.isEdit) {
             dispatch({
                 type: LocationsStateActions.SHOW_MARKER_DETAIL_VIEW,
                 payloader: {
@@ -125,7 +158,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => ({
-    locations: state.locationsState
+    locations: state.locationsState,
+    nav: state.nav
 });
 
 export default connect(mapStateToProps)(Map);

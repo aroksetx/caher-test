@@ -36,7 +36,7 @@ class LocationList extends Component {
 
     showMarkerDetails(data) {
         const {dispatch} = this.props;
-        dispatch({type: NavigationStateActions.GO_TO_MAP});
+        dispatch({type: NavigationStateActions.GO_TO_MAP, payloader: data});
     }
 
     render() {
