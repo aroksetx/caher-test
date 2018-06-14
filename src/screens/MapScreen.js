@@ -2,18 +2,13 @@ import React, { Component } from "react";
 import {
   Platform,
   StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  KeyboardAvoidingView,
-  Dimensions
+  View
 } from "react-native";
 import Navigation from "../components/Navigation/Navigation";
 import Map from "../components/Map/Map";
 import MapMarkerCreationWindow from "../components/Map/MarkerDetailsView";
 import { connect } from "react-redux";
-import { locationsStateActions } from "../reducers/Locations.reducer";
+import { LocationsStateActions } from "../actions";
 import { find, findIndex } from "lodash";
 import Expo from "expo";
 
@@ -29,7 +24,7 @@ class MapScreen extends Component {
     console.log("Add new marker", markerData);
     const { dispatch } = this.props;
     dispatch({
-      type: locationsStateActions.ADD_NEW_LOCATION,
+      type: LocationsStateActions.ADD_NEW_LOCATION,
       payloader: [markerData]
     });
     this.declineMarker();
@@ -43,7 +38,7 @@ class MapScreen extends Component {
     });
 
     dispatch({
-      type: locationsStateActions.REMOVE_LOCATION,
+      type: LocationsStateActions.REMOVE_LOCATION,
       payloader: {
         index: markerIndex
       }
@@ -58,7 +53,7 @@ class MapScreen extends Component {
       lng: markerData.lng
     });
     dispatch({
-      type: locationsStateActions.UPDATE_LOCATION,
+      type: LocationsStateActions.UPDATE_LOCATION,
       payloader: {
         marker: markerData,
         index: markerIndex
@@ -70,7 +65,7 @@ class MapScreen extends Component {
   declineMarker() {
     const { dispatch } = this.props;
     dispatch({
-      type: locationsStateActions.HIDE_MARKER_DETAIL_VIEW,
+      type: LocationsStateActions.HIDE_MARKER_DETAIL_VIEW,
       payloader: {}
     });
   }

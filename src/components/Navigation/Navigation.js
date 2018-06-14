@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-
 import { connect } from 'react-redux';
+
 import styles from './NavigationStyles';
 import NavigationItem from './NavigationItem';
+import { NavigationStateActions } from '../../actions';
 
 class Navigation extends Component {
     constructor(props) {
@@ -15,12 +16,12 @@ class Navigation extends Component {
 
     goToLocationsScreen() {
         const {dispatch} = this.props;
-        dispatch({type: 'LocationScreen'});
+        dispatch({type: NavigationStateActions.GO_TO_LOCATIONS});
     }
 
     goToMapScreen() {
         const {dispatch} = this.props;
-        dispatch({type: 'MapScreen'});
+        dispatch({type: NavigationStateActions.GO_TO_MAP});
     }
 
     render() {

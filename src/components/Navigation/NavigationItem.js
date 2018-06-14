@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Colors, Button } from "react-native-ui-lib"; //eslint-disable-line
 import styles from "./NavigationStyles";
 

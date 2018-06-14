@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import { MapView, Components } from "expo";
 import { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import {
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  View,
-  Text
+  StyleSheet
 } from "react-native";
 import { connect } from "react-redux";
 import { getDeviceCurrentLocation } from "../../services/LocationsService";
-import { locationsStateActions } from "../../reducers/Locations.reducer";
-import { ViewPagerAndroid } from "react-native-gesture-handler";
+import { LocationsStateActions } from "../../actions";
 import { isEmpty } from "lodash";
 
 class Map extends Component {
@@ -32,7 +27,7 @@ class Map extends Component {
     const { dispatch, locations } = this.props;
     getDeviceCurrentLocation().then(({ coords }) => {
       dispatch({
-        type: locationsStateActions.SET_DEVICE_LAST_LOCATION,
+        type: LocationsStateActions.SET_DEVICE_LAST_LOCATION,
         payloader: coords
       });
       this.setState({
@@ -87,7 +82,7 @@ class Map extends Component {
     const { dispatch } = this.props;
     const { coordinate } = event.nativeEvent;
     dispatch({
-      type: locationsStateActions.SHOW_MARKER_DETAIL_VIEW,
+      type: LocationsStateActions.SHOW_MARKER_DETAIL_VIEW,
       payloader: {
         coordinate: coordinate,
         isNew: true
@@ -100,7 +95,7 @@ class Map extends Component {
     const { coordinate } = event.nativeEvent;
 
     dispatch({
-      type: locationsStateActions.SHOW_MARKER_DETAIL_VIEW,
+      type: LocationsStateActions.SHOW_MARKER_DETAIL_VIEW,
       payloader: {
         coordinate: coordinate,
         isNew: false

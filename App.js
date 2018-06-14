@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 import DB from './src/services/DataBaseService';
 
 import { getLocationsList } from './src/services/LocationsService';
-import { locationsStateActions } from './src/reducers/Locations.reducer';
+import { LocationsStateActions } from './src/actions';
 
 const store = createStore(AppReducer, applyMiddleware(middleware, logger));
 
@@ -21,7 +21,7 @@ export default class App extends React.Component {
     componentDidMount() {
         getLocationsList().then(({locations}) =>
             store.dispatch({
-                type: locationsStateActions.ADD_NEW_LOCATION,
+                type: LocationsStateActions.ADD_NEW_LOCATION,
                 payloader: locations
             })
         );
