@@ -46,6 +46,10 @@ export default class App extends React.Component {
                     if (isEmpty(_array)) {
                         const {name, lat, lng} = location;
                         this.dataBase.addItem(name, '', lat, lng);
+                        store.dispatch({
+                            type: LocationsStateActions.ADD_NEW_LOCATION,
+                            payloader: [{...location, description: ''}]
+                        });
                     }
                 });
 

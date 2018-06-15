@@ -35,6 +35,12 @@ export default class DataBaseService {
         });
     }
 
+    removerItem({lat, lng}) {
+        this.db.readTransaction(trans => {
+            trans.executeSql(`delete from locations where id = ?;`, [lat]);
+        });
+    }
+
     updateItem(name, description, lat, lng) {
         this.db.transaction(trans => {
             trans.executeSql(

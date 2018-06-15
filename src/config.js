@@ -1,4 +1,4 @@
 
 export default ApplicationConfigs = {
-    dbName: 'testLocation-0.2'
+    dbName: 'testLocation-0.63346'
 }

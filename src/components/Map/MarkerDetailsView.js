@@ -71,8 +71,6 @@ export default class MapMarkerCreationWindow extends Component {
                 );
             }
         };
-
-
         return (
             <View style={styles.newMarkerBlock}>
                 <View style={{flex: 1, padding: 20}}>
@@ -100,9 +98,6 @@ export default class MapMarkerCreationWindow extends Component {
                         style={styles.buttonsStyle}
                         color="#fff"
                         size={'medium'}
-                        disabled={
-                            this.state.name.length === 0 || this.state.name.trim() === ''
-                        }
                         accessibilityLabel="Learn more about this purple button"
                     />
 

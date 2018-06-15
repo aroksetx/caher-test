@@ -46,6 +46,11 @@ class MapScreen extends Component {
                 index: markerIndex
             }
         });
+
+        this.dataBase.removerItem({
+            lat: 6,
+            lng: 6
+        })
         this.declineMarker();
     }
 
