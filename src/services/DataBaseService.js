@@ -37,15 +37,15 @@ export default class DataBaseService {
 
     removerItem({lat, lng}) {
         this.db.transaction(trans => {
-            trans.executeSql(`delete from locations where lat=? and lng=?`, [lat, lng]);
+            trans.executeSql(`delete from locations where lat=? and lng=?`, [lat, lng])
         });
     }
 
     updateItem(name, description, lat, lng) {
         this.db.transaction(trans => {
             trans.executeSql(
-                `update locations set (name, description, lat, lng) values (?, ?, ?, ?) where id = ?;`,
-                [name, description, lat, lng, id]
+                `update locations set name = ?, description =?  where lat=? and lng=?`,
+                [name, description, lat, lng]
             );
         });
     }

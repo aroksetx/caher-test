@@ -35,10 +35,11 @@ class MapScreen extends Component {
 
     removeMarker(markerData) {
         const {dispatch, locations} = this.props;
-        const markerIndex = findIndex(locations.locations, {
+        const coordinates = {
             lat: markerData.lat,
             lng: markerData.lng
-        });
+        };
+        const markerIndex = findIndex(locations.locations, coordinates);
 
         dispatch({
             type: LocationsStateActions.REMOVE_LOCATION,
@@ -47,7 +48,7 @@ class MapScreen extends Component {
             }
         });
 
-        this.dataBase.removerItem(markerIndex);
+        this.dataBase.removerItem(coordinates);
         this.declineMarker();
     }
 
@@ -64,6 +65,7 @@ class MapScreen extends Component {
                 index: markerIndex
             }
         });
+        this.dataBase.updateItem(markerData.name, markerData.description, markerData.lat, markerData.lng);
         this.declineMarker();
     }
 
