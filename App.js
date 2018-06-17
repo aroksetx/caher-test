@@ -4,14 +4,13 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { middleware } from './src/utils/Redux';
 import AppReducer from './src/reducers';
-import logger from 'redux-logger';
 import DB from './src/services/DataBaseService';
 import { isNil, isEmpty } from 'lodash';
-import { getDeviceCurrentLocation, getLocationsList } from './src/services/LocationsService';
+import { getLocationsList } from './src/services/LocationsService';
 import { LocationsStateActions } from './src/actions';
 import config from './src/config';
 
-const store = createStore(AppReducer, applyMiddleware(middleware, logger));
+const store = createStore(AppReducer, applyMiddleware(middleware));
 
 export default class App extends React.Component {
     constructor() {
